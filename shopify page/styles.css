@@ -1,0 +1,74 @@
+.error-message {
+    color: #EF4444;
+    font-size: 0.75rem;
+    display: none;
+    margin-top: 2px;
+    position: relative;
+    left: 0;
+    margin-bottom: 4px;
+}
+
+.input-error {
+    border-color: #EF4444 !important;
+}
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.input-group {
+    margin-bottom: 1rem;
+}
+
+.sticky-summary {
+    position: sticky;
+    top: 20px;
+}
+
+#paymentSection {
+    transition: opacity 0.3s ease-in-out;
+}
+
+#continueToPaymentBtn {
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Add these styles for the error message animation */
+@keyframes errorShake {
+    0% { transform: translateX(0); border-color: <?php echo $config['store']['theme_color']; ?>; }
+    25% { transform: translateX(10px); }
+    50% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+    100% { transform: translateX(0); border-color: <?php echo $config['store']['theme_color']; ?>; }
+}
+
+#paymentError {
+    animation: errorShake 0.5s ease-in-out;
+}
+
+/* Add these styles for button spinners */
+.relative {
+    position: relative;
+}
+
+button span[id$="Spinner"] {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+button span[id$="Text"] {
+    transition: opacity 0.2s;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Update focus ring color */
+input:focus, select:focus {
+    --tw-ring-color: <?php echo $config['store']['theme_color']; ?>;
+    --tw-border-color: <?php echo $config['store']['theme_color']; ?>;
+}

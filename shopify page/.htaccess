@@ -1,0 +1,12 @@
+# Protect admin files
+<Files "admin*.php">
+    Order Allow,Deny
+    Allow from all
+</Files>
+
+# Redirect non-logged in users
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} ^.*admin[^/]*\.php$
+RewriteCond %{REQUEST_URI} !^/admin_login\.php$
+RewriteCond %{SESSION:admin_logged_in} !^true$
+RewriteRule ^(.*)$ /admin_login.php [R,L] 
